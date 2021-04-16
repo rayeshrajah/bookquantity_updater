@@ -49,6 +49,14 @@ router.delete('/:id', (req, res)=> {
         res.json({error: err})
     })
 })
+//Get books by id;
+router.get('/:id', (req, res) => {
+    db.select().from('books').where({id: req.params.id}).then((data) => {
+        res.send(data);
+    }).catch((err) => {
+        res.send(err);
+    })
+})
 
 
 module.exports = router;
