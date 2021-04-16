@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../../db/index');
 
 router.get('/', (req, res) => {
-    db.select().from('books').orderBy('id').then((data) => {
+    db.select().from('bookstores').orderBy('id').then((data) => {
         res.send(data);
     }).catch((err) => {
         res.send(err);
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    db.insert(req.body).returning('*').into('books').then((data) => {
+    db.insert(req.body).returning('*').into('bookstores').then((data) => {
         res.send(data);
     }).catch((err) => {
         res.send(err);
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 });
 
 router.patch('/:id', (req, res) => {
-    db('books').where({ id: req.params.id })
+    db('bookstores').where({ id: req.params.id })
         .update(req.body)
         .returning('*').then((data) => {
             res.send(data);
@@ -28,12 +28,9 @@ router.patch('/:id', (req, res) => {
         });
 });
 router.put('/:id', (req, res) => {
-    db('books').where({ id: req.params.id })
+    db('bookstores').where({ id: req.params.id })
         .update({
-            book_name: req.body.book_name,
-            author: req.body.author,
-            stock_level: req.body.stock_level,
-            bookstore_id: req.body.bookstore_id
+            bookstore_name: req.body.book_name,
         })
         .returning('*').then((data) => {
             res.send(data);
@@ -43,12 +40,11 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res)=> {
-    db('books').where({id: req.params.id}).del().then(function() {
+    db('bookstores').where({id: req.params.id}).del().then(function() {
         res.json({success: true});
     }).catch((err) => {
         res.json({error: err})
     })
 })
-
 
 module.exports = router;
