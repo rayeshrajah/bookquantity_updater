@@ -1,7 +1,11 @@
 const express = require('express');
-const router = require('./router');
+const apiRoutes = require('./routes/api');
+
+
 const app = express();
 app.use(express.json());
-app.use(router);
 
-app.listen(8080, () => console.log("Sever listening on port 8080"));
+app.use('/api', apiRoutes);
+
+
+app.listen(3000, () => console.log("Sever listening on port 3000"));
