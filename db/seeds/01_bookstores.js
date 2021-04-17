@@ -5,8 +5,8 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('bookstores').insert([
-        {id: 1, bookstore_name: 'Chapters'},
-        {id: 2, bookstore_name: 'Indigo'},
+        {bookstore_name: 'Chapters'},
+        {bookstore_name: 'Indigo'},
       ]);
     });
 };

@@ -2,7 +2,7 @@
 exports.up = function(knex) {
     return knex.schema
     .createTable('bookstores', table => {
-      table.increments('id').primary();
+      table.increments().primary();
       table.string('bookstore_name', 255).notNullable();
       table.timestamps(true, true);
   });

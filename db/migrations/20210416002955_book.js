@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable('books', table => {
-        table.increments('id').primary();
+        table.increments();
         table.string('book_name', 100).notNullable();
         table.string('author', 100).notNullable();
         table.integer('stock_level').notNullable();

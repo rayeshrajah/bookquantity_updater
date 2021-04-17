@@ -11,12 +11,11 @@ function getAllBooks() {
     })
 };
 
-function createBooks(id, book_name, author, stock_level, bookstore_id){
+function createBooks(book_name, author, stock_level, bookstore_id){
     axios({
         method: "post",
         url: "http://localhost:3000/api/book",
         data:  {
-            id: id,
             book_name: book_name,
             author: author,
             stock_level: stock_level,
