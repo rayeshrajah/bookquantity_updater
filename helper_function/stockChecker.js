@@ -1,15 +1,15 @@
 const axios = require('axios');
 
-function updateStockLevel(id) {
+function stockChecker(id) {
     axios({
         method: 'get',
         url: 'http://localhost:3000/api/book/' + id,
     }).then((res) => {
         console.log(res.data);
          if(res.data[0].stock_level === 0){
-            console.log("Out of stock");
+           console.log ("Out of stock");
          }
-         else{
+         else if(res.data[0].stock_level > 0){
              console.log("Book is still available");
          }
     }).catch((err) => {
@@ -17,8 +17,10 @@ function updateStockLevel(id) {
     })
 
     setTimeout(() => {
-        updateStockLevel(id);
+        stockChecker(2);
     }, 5000);
 }
 
-updateStockLevel(2);
+stockChecker(2);
+
+module.exports = stockChecker;

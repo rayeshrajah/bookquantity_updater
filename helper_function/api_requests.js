@@ -28,4 +28,4 @@ function createBooks(book_name, author, stock_level, bookstore_id){
     });
 }
 
-module.exports = {getAllBooks}
+module.exports = {getAllBooks , createBooks}

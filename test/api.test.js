@@ -9,6 +9,7 @@ describe('get books data', () => {
 
     it('should create a book', async () => {
         const result = await axios.post('http://localhost:3000/api/book/', {
+            id: 4,
             book_name: "test_one",
             author: "unknown",
             stock_level: 1,
@@ -20,12 +21,5 @@ describe('get books data', () => {
     it('should delete a book by id', async() => {
         const result = await axios.delete('http://localhost:3000/api/book/4');
         console.log('result', result.data);
-    })
-
-    it('should update a book stock', async() => {
-        const result = await axios.patch('http://localhost:3000/api/book/2', {
-            stock_level: 2
-        });
-        console.log('result', result.data);
-    })
+    });
 })
