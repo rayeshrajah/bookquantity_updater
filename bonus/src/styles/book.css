@@ -11,27 +11,32 @@
 }
 
 .book-name{
-    width:20%;
+    width:16.66%;
 }
 
 .book-id{
-    width: 20%;
+    width:16.66%;
     text-align: center;
 }
 
 .author{
-    width: 20%;
+    width:16.66%;
     text-align: center;
     
 }
 
 .stock-level{
-    width: 20%;
+    width:16.66%;
     text-align: center;
 }
 
 .availability{
-    width: 20%;
+    width:16.66%;
+    text-align: center;
+}
+
+.book-store{
+    width:16.66%;
     text-align: center;
 }
 

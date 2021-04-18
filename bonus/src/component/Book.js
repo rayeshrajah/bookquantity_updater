@@ -28,6 +28,7 @@ export default function Book(props){
                 <p className="author">Author</p>
                 <p className="stock-level">Quantity</p>
                 <p className="availability">Availability</p>
+                <p className="book-store">Bookstore</p>
             </div>
             {props.bookApi.map((element) => {
                 return(
@@ -37,6 +38,7 @@ export default function Book(props){
                     <p className="author">{element.author}</p>
                     <p className="stock-level">{element.stock_level}</p>
                     {element.stock_level === 0 ? <p className="availability">Out of stock</p> : <p className="availability">Available</p>}
+                    <p className="book-store">{element.bookstore_name}</p>
                     </div>
                 )
             })}
