@@ -3,7 +3,10 @@ const router = express.Router();
 const db = require('../../db/index');
 
 router.get('/', (req, res) => {
-    db.select().from('books').orderBy('id').then((data) => {
+    db.select('books.id', 'books.book_name', 'books.author', 'books.stock_level', 'books.created_at', 'books.updated_at', 'bookstores.bookstore_name')
+       .from('bookstores')
+       .innerJoin('books', 'bookstores.id', 'books.bookstore_id' )
+       .orderBy('books.id').then((data) => {
         res.send(data);
     }).catch((err) => {
         res.send(err);
