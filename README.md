@@ -88,6 +88,9 @@ This should bring up the ui, and you should be able to play around with the quan
 
 ### Here are some screen shots of the app flow
 
+Simple ERD for the database
+!["Database"](/docs/images/database.png)
+
 Testing with jest.
 
 !["Jest Test"](/docs/images/jest_test_p1.png)
